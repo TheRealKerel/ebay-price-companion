@@ -9,6 +9,9 @@ they will also be part of the calculation!
 **No guarantee for right calculations!!**   
 
 *The design of the site also matters, there is a layout with different page elements where the modal won't work*
+#Installation
+Install [Tampermonkey](https://www.tampermonkey.net/) and then use the following link to install this userscript:
+https://github.com/TheRealKerel/ebay-price-companion/raw/main/ebay-price-companion.user.js
 
 # Screenshots
 ![Modal closed](screenshots/img.png)
