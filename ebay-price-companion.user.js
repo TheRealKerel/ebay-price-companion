@@ -8,8 +8,6 @@
 // @grant        none
 // ==/UserScript==
 
-/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_bottom */
-
 /* Only execute when the search is for sold items */
 if (/&LH_Sold=1/.test(location.search)) {
     let body = document.getElementsByTagName('body')[0];
