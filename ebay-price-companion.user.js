@@ -104,6 +104,9 @@ if (/&LH_Sold=1/.test(location.search)) {
         let results_information = [];
         let index = 0;
         let origin = 'local';
+        count_local = 0;
+        count_international = 0;
+        count_complete = 0;
 
         for (let i = 0; i < items.length; i++) {
             let item = items[i];
