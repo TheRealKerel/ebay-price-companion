@@ -5,6 +5,7 @@
 // @description  Calculates statistics for sold items and tries to calculate complete price incl. shipping on normal overview.
 // @author       Kerel
 // @match        https://www.ebay.de/*
+// @updateURL    https://github.com/TheRealKerel/ebay-price-companion/raw/main/ebay-price-companion.user.js
 // @grant        none
 // ==/UserScript==
 
