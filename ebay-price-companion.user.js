@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ebay Price Companion
 // @namespace    https://github.com/TheRealKerel/ebay-price-companion
-// @version      0.2.3
+// @version      0.2.3.1
 // @downloadURL  https://github.com/TheRealKerel/ebay-price-companion/raw/main/ebay-price-companion.user.js
 // @updateURL    https://github.com/TheRealKerel/ebay-price-companion/raw/main/ebay-price-companion.user.js
 // @description  Calculates statistics for sold items and tries to calculate complete price incl. shipping on normal overview.
