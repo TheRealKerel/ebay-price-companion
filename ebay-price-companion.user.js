@@ -188,24 +188,24 @@ if (/&LH_Sold=1/.test(location.search)) {
         let price_total_incl_shipping_complete = 0;
 
         //medians without shipping
-        let median_wout_shipping_local = 0;
-        let median_wout_shipping_international = 0;
-        let median_wout_shipping_complete = 0;
+        let median_wout_shipping_local;
+        let median_wout_shipping_international;
+        let median_wout_shipping_complete;
 
         //medians with shipping
-        let median_incl_shipping_local = 0
-        let median_incl_shipping_international = 0
-        let median_incl_shipping_complete = 0
+        let median_incl_shipping_local;
+        let median_incl_shipping_international;
+        let median_incl_shipping_complete;
 
         //price average without shipping
-        let price_avg_wout_shipping_local = 0;
-        let price_avg_wout_shipping_international = 0;
-        let price_avg_wout_shipping_complete = 0;
+        let price_avg_wout_shipping_local;
+        let price_avg_wout_shipping_international;
+        let price_avg_wout_shipping_complete;
 
         //price average with shipping
-        let price_avg_incl_shipping_local = 0;
-        let price_avg_incl_shipping_international = 0;
-        let price_avg_incl_shipping_complete = 0;
+        let price_avg_incl_shipping_local;
+        let price_avg_incl_shipping_international;
+        let price_avg_incl_shipping_complete;
 
         //array to collect prices without shipping
         let prices_wout_shipping_local = [];
@@ -218,7 +218,18 @@ if (/&LH_Sold=1/.test(location.search)) {
         let prices_incl_shipping_complete = [];
 
         for (let i = 0; i < data.length; i++) {
-            let price = Number(data[i].price.replace(/[^0-9\,]+/g,"").replace(/,/g, '.')); //Preis Artikel
+            //Fix for price ranges e.g. 100 bis 200€
+            let prices = data[i].price.split('bis');
+            let price = 0;
+            if (prices.length > 1) {
+                let price_temp = 0;
+                for (let y = 0; y < prices.length; y++) {
+                    price_temp += Number(prices[y].trim().replace(/[^0-9\,]+/g,"").replace(/,/g, '.'));
+                }
+                price = (price_temp / prices.length);
+            } else {
+                price = Number(data[i].price.replace(/[^0-9\,]+/g,"").replace(/,/g, '.')); //Preis Artikel
+            }
 
             if (data[i].origin === 'local') {
                 prices_wout_shipping_local.push(price);
