@@ -227,11 +227,11 @@ if (/&LH_Sold=1/.test(location.search)) {
             if (prices.length > 1) {
                 let price_temp = 0;
                 for (let y = 0; y < prices.length; y++) {
-                    price_temp += Number(prices[y].trim().replace(/[^0-9\,]+/g,"").replace(/,/g, '.'));
+                    price_temp += Number(prices[y].trim().replace(/[^0-9,]+/g,"").replace(/,/g, '.'));
                 }
                 price = (price_temp / prices.length);
             } else {
-                price = Number(data[i].price.replace(/[^0-9\,]+/g,"").replace(/,/g, '.')); //Preis Artikel
+                price = Number(data[i].price.replace(/[^0-9,]+/g,"").replace(/,/g, '.')); //Preis Artikel
             }
 
             if (data[i].origin === 'local') {
@@ -250,7 +250,7 @@ if (/&LH_Sold=1/.test(location.search)) {
             }
             price_total_wout_shipping_complete = +(price_total_wout_shipping_complete + price).toFixed(12); //Gesamtpreis ohne Versand
 
-            let shipping = Number(data[i].shipping.replace(/[^0-9\,]+/g,"").replace(/,/g, '.')); //Preis Versand Artikel
+            let shipping = Number(data[i].shipping.replace(/[^0-9,]+/g,"").replace(/,/g, '.')); //Preis Versand Artikel
             let price_incl_shipping = +(price + shipping).toFixed(12); //wichtig so zu addieren weil Kommazahlen, Preis Artikel + Versand
 
             if (data[i].origin === 'local') {
@@ -477,8 +477,8 @@ try {
     for (let i = 0; i < items.length; i++) {
         let item = items[i];
         if (item.nodeName === 'LI') {
-            let price = Number(item.getElementsByClassName('s-item__price')[0].innerText.replace(/[^0-9\,]+/g,"").replace(/,/g, '.'));
-            let shipping = Number(item.getElementsByClassName('s-item__shipping')[0].innerText.replace(/[^0-9\,]+/g,"").replace(/,/g, '.'));
+            let price = Number(item.getElementsByClassName('s-item__price')[0].innerText.replace(/[^0-9,]+/g,"").replace(/,/g, '.'));
+            let shipping = Number(item.getElementsByClassName('s-item__shipping')[0].innerText.replace(/[^0-9,]+/g,"").replace(/,/g, '.'));
             let allin = +(price + shipping).toFixed(2);
             allin = (Math.round(allin * 100) / 100).toFixed(2).toString().replace(/\./g, ',');
 
@@ -496,16 +496,16 @@ catch (e) {
 
 //calculate complete price on listing details site
 try {
-    let price = Number(document.getElementById('prcIsum').innerText.replace(/[^0-9\,]+/g,"").replace(/,/g, '.'));
+    let price = Number(document.getElementById('prcIsum').innerText.replace(/[^0-9,]+/g,"").replace(/,/g, '.'));
     let converted_price = document.getElementById('convbinPrice');
     if (converted_price !== null) {
-        price = Number(converted_price.innerText.replace(/[^0-9\,]+/g,"").replace(/,/g, '.'));
+        price = Number(converted_price.innerText.replace(/[^0-9,]+/g,"").replace(/,/g, '.'));
     }
 
-    let shipping = Number(document.getElementById('fshippingCost').children[0].innerText.replace(/[^0-9\,]+/g,"").replace(/,/g, '.'));
+    let shipping = Number(document.getElementById('fshippingCost').children[0].innerText.replace(/[^0-9,]+/g,"").replace(/,/g, '.'));
     let converted_shipping = document.getElementById('convetedPriceId');
     if (converted_shipping !== null) {
-        shipping = Number(converted_shipping.innerText.replace(/[^0-9\,]+/g,"").replace(/,/g, '.'));
+        shipping = Number(converted_shipping.innerText.replace(/[^0-9,]+/g,"").replace(/,/g, '.'));
     }
 
     let allin = +(price + shipping).toFixed(2);
