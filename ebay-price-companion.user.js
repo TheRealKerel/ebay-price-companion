@@ -88,7 +88,6 @@ if (/&LH_Sold=1/.test(location.search)) {
     body.appendChild(toggle_modal_btn);
     toggle_modal_btn.onclick = function(event) {
         event.preventDefault();
-        console.clear();
         let data = collect_data();
         let values = calculate_avg_complete_price_values(data);
         display_data(values);
